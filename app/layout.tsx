@@ -1,6 +1,5 @@
 import type { Metadata, Viewport } from 'next'
 import { Play } from 'next/font/google'
-
 import { LanguageProvider } from '@/lib/language-context'
 import './globals.css'
 
