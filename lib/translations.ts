@@ -303,6 +303,19 @@ const SUPPORTED_LOCALES: Locale[] = ["en", "ru"]
 
 export function getBrowserLocale(): Locale {
   if (typeof window === "undefined") return "en"
+
+  // 1. Пытаемся взять язык из query‑параметра hl (?hl=ru|en)
+  try {
+    const params = new URLSearchParams(window.location.search)
+    const hl = params.get("hl")?.toLowerCase()
+    if (hl && SUPPORTED_LOCALES.includes(hl as Locale)) {
+      return hl as Locale
+    }
+  } catch {
+    // ignore
+  }
+
+  // 2. Фолбэк — язык браузера
   const raw = navigator.language || (navigator as { userLanguage?: string }).userLanguage || "en"
   const code = raw.split("-")[0].toLowerCase()
   return SUPPORTED_LOCALES.includes(code as Locale) ? (code as Locale) : "en"

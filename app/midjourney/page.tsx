@@ -9,7 +9,42 @@ import { MidjourneyClient } from "./midjourney-client"
 
 export const metadata: Metadata = {
   title: "Midjourney — Create with Imagine",
-  description: "Generate stunning, photorealistic images with unmatched detail and artistic control. Midjourney brings cinematic quality to every prompt — from concept art to product shots and beyond.",
+  description:
+    "Generate stunning, photorealistic images with unmatched detail and artistic control. Midjourney brings cinematic quality to every prompt — from concept art to product shots and beyond.",
+  alternates: {
+    canonical: "/midjourney/",
+    languages: {
+      en: "/midjourney/",
+      ru: "/midjourney/?hl=ru",
+    },
+  },
+  openGraph: {
+    type: "website",
+    url: "/midjourney/",
+    title: "Midjourney — Create with Imagine",
+    description:
+      "Photorealistic AI image generation with cinematic quality, deep detail, and rich lighting — powered by Midjourney inside Imagine AI.",
+    siteName: "Imagine AI",
+    images: [
+      {
+        url: "/og-main.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Midjourney model preview — Imagine AI",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Midjourney — Photorealistic AI Images on Imagine",
+    description:
+      "Create cinematic, photorealistic AI images with Midjourney inside Imagine AI — perfect for concept art, product visuals, and more.",
+    images: ["/og-main.jpg"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 }
 
 export default function MidjourneyPage() {

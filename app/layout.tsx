@@ -9,9 +9,74 @@ const play = Play({
   variable: '--font-play',
 })
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://imag.gg'
+
+const organizationJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'Imagine AI',
+  url: siteUrl,
+  logo: `${siteUrl}/favicon.webp`,
+}
+
 export const metadata: Metadata = {
-  title: 'Imagine AI - Create Anything With AI',
-  description: 'Imagine AI - the ultimate creative platform with 90+ AI tools for generating images, videos, text, voice, and code. All models in one place.',
+  title: 'Imagine AI — Create Anything With AI',
+  description:
+    'Imagine AI — the ultimate creative platform with 90+ AI tools for generating images, videos, text, voice, and code. All models in one place.',
+  metadataBase: new URL(siteUrl),
+  alternates: {
+    languages: {
+      en: '/',
+      ru: '/?hl=ru',
+    },
+  },
+  openGraph: {
+    type: 'website',
+    url: '/',
+    title: 'Imagine AI — Create Anything With AI',
+    description:
+      'Generate images, videos, and more with 90+ AI models on a single platform. Fast, powerful, and built for creators.',
+    siteName: 'Imagine AI',
+    images: [
+      {
+        url: '/og-main.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Imagine AI logo',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Imagine AI — Create Anything With AI',
+    description:
+      'Generate images, videos, and more with 90+ AI models on a single platform. Fast, powerful, and built for creators.',
+    images: ['/og-main.jpg'],
+  },
+  icons: {
+    icon: [
+      {
+        url: '/favicon.webp',
+        type: 'image/webp',
+      },
+      {
+        url: '/favicon.ico',
+        type: 'image/x-icon',
+      },
+    ],
+    shortcut: [
+      {
+        url: '/favicon.webp',
+        type: 'image/webp',
+      },
+    ],
+    apple: [
+      {
+        url: '/favicon.webp',
+        type: 'image/webp',
+      },
+    ],
+  },
 }
 
 export const viewport: Viewport = {
@@ -27,6 +92,10 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className={`${play.variable} font-sans antialiased`}>
         <LanguageProvider>{children}</LanguageProvider>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
+        />
       </body>
     </html>
   )

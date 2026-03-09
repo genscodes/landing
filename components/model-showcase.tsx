@@ -94,7 +94,7 @@ export function ImageCarousel({
                 {src ? (
                   <img
                     src={src}
-                    alt=""
+                    alt="AI-generated artwork example from Imagine"
                     className="h-full w-full object-cover"
                   />
                 ) : (

@@ -10,7 +10,7 @@ const footerLinkKeys = {
     { key: "nav.tools" as const, href: "#create" },
     { key: "nav.models" as const, href: "#models" },
     { key: "nav.showcase" as const, href: "#showcase" },
-    { key: "nav.faq" as const, href: "#faq" },
+    { key: "nav.faq" as const, href: "#faq" }
   ],
   Studio: [
     { key: "footer.goToStudio" as const, href: `${APP_URL}/` },

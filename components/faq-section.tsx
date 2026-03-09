@@ -18,6 +18,19 @@ const faqKeys = [
 
 export function FaqSection() {
   const { t } = useLanguage()
+  const faqJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqKeys.map((faq) => ({
+      "@type": "Question",
+      name: t(faq.qKey),
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: t(faq.aKey),
+      },
+    })),
+  }
+
   return (
     <section id="faq" className="relative px-6 py-24">
       <div className="mx-auto max-w-3xl">
@@ -47,6 +60,10 @@ export function FaqSection() {
           ))}
         </Accordion>
       </div>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
     </section>
   )
 }

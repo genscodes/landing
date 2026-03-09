@@ -254,7 +254,7 @@ export function ShowcaseSection() {
                   {item.type === "image" ? (
                     <img
                       src={item.src}
-                      alt=""
+                      alt="AI-generated image example from Imagine"
                       className="h-full w-full object-cover"
                     />
                   ) : (
@@ -280,7 +280,7 @@ export function ShowcaseSection() {
                   {item.type === "image" ? (
                     <img
                       src={item.src}
-                      alt=""
+                      alt="AI-generated image example from Imagine"
                       className="h-full w-full object-cover"
                     />
                   ) : (

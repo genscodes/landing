@@ -18,10 +18,12 @@ export function Navbar() {
   const pathname = usePathname()
   const [mobileOpen, setMobileOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
-  const navLinks = navLinkKeys.map(({ key, href }) => ({
-    label: t(key),
-    href: pathname === "/" ? href : `/${href}`,
-  }))
+  const navLinks = [
+    ...navLinkKeys.map(({ key, href }) => ({
+      label: t(key),
+      href: pathname === "/" ? href : `/${href}`,
+    }))
+  ]
   const logoHref = pathname === "/" ? "#" : "/"
 
   useEffect(() => {
