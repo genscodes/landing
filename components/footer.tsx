@@ -17,7 +17,7 @@ const footerLinkKeys = {
   ],
   Support: [
     { key: "footer.faq" as const, href: "#faq" },
-    { key: "footer.discord" as const, href: "#" },
+    { key: "footer.discord" as const, href: "https://discord.gg/UeEjXC4jfv" },
   ],
   Legal: [
     { key: "footer.legal.userAgreement" as const, href: `${APP_URL}/user-agreement`, isExternal: true },
@@ -101,10 +101,20 @@ export function Footer() {
             {t("footer.copyright")}
           </p>
           <div className="flex items-center gap-6">
-            <a href="#" className="text-xs text-muted-foreground transition-colors hover:text-foreground">
+            <a
+              href="https://discord.gg/UeEjXC4jfv"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-xs text-muted-foreground transition-colors hover:text-foreground"
+            >
               {t("footer.discord")}
             </a>
-            <a href="#" className="text-xs text-muted-foreground transition-colors hover:text-foreground">
+            <a
+              href="https://t.me/imagine_support"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-xs text-muted-foreground transition-colors hover:text-foreground"
+            >
               {t("footer.telegram")}
             </a>
           </div>

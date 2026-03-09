@@ -8,6 +8,7 @@ const toolsConfig = [
   { id: "create_image", tagKey: null as string | null },
   { id: "create_video", tagKey: null },
   { id: "motion_control", tagKey: null },
+  { id: "create_character", tagKey: null },
   { id: "edit_image", tagKey: null },
   { id: "nano_banana_pro", tagKey: "create.tag.unlimited" },
   { id: "upscale", tagKey: "create.tag.new" },
@@ -16,7 +17,8 @@ const toolsConfig = [
 const toolMedia: Record<string, { src: string; type: "video" | "image" }> = {
   create_image: { src: "/main/create_img.webm", type: "video" },
   create_video: { src: "/main/create-video.webm", type: "video" },
-  motion_control: { src: "/main/motion_control.mp4", type: "video" },
+  motion_control: { src: "/main/motion_control.webm", type: "video" },
+  create_character: { src: "/main/character_2.webm", type: "video" },
   edit_image: { src: "/main/img_edit.webm", type: "video" },
   nano_banana_pro: { src: "/main/nanobanana.webm", type: "video" },
   upscale: { src: "/main/upscale.webm", type: "video" },
@@ -103,6 +105,11 @@ export function CreateBanner() {
                           muted
                           loop
                           playsInline
+                          onLoadedMetadata={(event) => {
+                            if (tool.id === "create_character") {
+                              event.currentTarget.playbackRate = 0.5
+                            }
+                          }}
                           className="h-full w-full object-cover"
                         />
                       ) : toolMedia[tool.id]?.type === "image" ? (

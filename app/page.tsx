@@ -7,6 +7,7 @@ import { ShowcaseSection } from "@/components/showcase-section"
 import { FaqSection } from "@/components/faq-section"
 import { Footer } from "@/components/footer"
 import { CookieConsent } from "@/components/cookie-consent"
+import { CreateCharacterSection } from "@/components/create-character-section"
 
 export default function Page() {
   return (
@@ -21,8 +22,9 @@ export default function Page() {
           </div>
         </div>
       </section>
-      <MidjourneyShowcase />
       <NanaBananaShowcase />
+      <MidjourneyShowcase />
+      <CreateCharacterSection />
       <ShowcaseSection />
       <FaqSection />
       <Hero />

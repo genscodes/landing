@@ -8,8 +8,9 @@ import { CookieConsent } from "@/components/cookie-consent"
 import { NanobananaClient } from "./nanobanana-client"
 
 export const metadata: Metadata = {
-  title: "Nano Banana Pro — Create with Imagine",
-  description: "One of the most detailed AI image models available. Nano Banana Pro delivers maximum fidelity, fine detail, and precise control over composition — for concept art, product shots, and high-end visuals.",
+  title: "Nano Banana 2 — Create with Imagine",
+  description:
+    "One of the most detailed AI image models available. Nano Banana 2 delivers maximum fidelity, fine detail, and precise control over composition — for concept art, product shots, and high-end visuals.",
 }
 
 export default function NanobananaPage() {
