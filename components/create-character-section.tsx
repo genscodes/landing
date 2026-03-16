@@ -2,9 +2,11 @@
 
 import { ArrowRight } from "lucide-react"
 import { useLanguage } from "@/lib/language-context"
+import { getAppUrl } from "@/lib/utils"
 
 export function CreateCharacterSection() {
   const { t } = useLanguage()
+  const appUrl = getAppUrl()
 
   return (
     <section className="px-4 py-16 md:px-8 lg:px-16">
@@ -22,7 +24,7 @@ export function CreateCharacterSection() {
               {t("characterSection.subtitle")}
             </p>
             <a
-              href="https://app.imag.gg/character"
+              href={`${appUrl}/character`}
               className="mt-8 inline-flex items-center gap-2 rounded-full bg-foreground px-7 py-3.5 text-sm font-bold text-background transition-transform hover:scale-105"
             >
               {t("characterSection.cta")}

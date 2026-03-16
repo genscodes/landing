@@ -5,6 +5,7 @@ import { ArrowRight } from "lucide-react"
 import { useLanguage } from "@/lib/language-context"
 import { ImageCarousel } from "@/components/model-showcase"
 import { MIDJOURNEY_IMAGES } from "@/lib/midjourney-images"
+import { getAppUrl } from "@/lib/utils"
 
 export function MidjourneyClient() {
   const { t } = useLanguage()
@@ -48,7 +49,7 @@ export function MidjourneyClient() {
           </li>
         </ul>
         <a
-          href="https://app.imag.gg"
+          href={getAppUrl()}
           className="mt-10 inline-flex items-center gap-2 rounded-full bg-foreground px-7 py-3.5 text-sm font-bold text-background transition-transform hover:scale-105"
         >
           {t("models.startCreating")}

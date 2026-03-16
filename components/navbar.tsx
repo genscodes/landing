@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation"
 import { Menu, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { useLanguage } from "@/lib/language-context"
+import { getAppUrl } from "@/lib/utils"
 
 const navLinkKeys = [
   { key: "nav.tools", href: "#create" },
@@ -18,6 +19,7 @@ export function Navbar() {
   const pathname = usePathname()
   const [mobileOpen, setMobileOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
+  const appUrl = getAppUrl()
   const navLinks = [
     ...navLinkKeys.map(({ key, href }) => ({
       label: t(key),
@@ -63,12 +65,12 @@ export function Navbar() {
             className="text-sm text-muted-foreground hover:text-foreground hover:bg-accent"
             asChild
           >
-            <a href="https://app.imag.gg/login">
+            <a href={`${appUrl}/login`}>
               {t("nav.signIn")}
             </a>
           </Button>
           <Button className="rounded-full bg-foreground text-background hover:bg-foreground/90 text-sm px-5" asChild>
-            <a href="https://app.imag.gg">
+            <a href={appUrl}>
               {t("nav.goToApp")}
             </a>
           </Button>
@@ -98,12 +100,12 @@ export function Navbar() {
             ))}
             <div className="flex flex-col gap-2 border-t border-border/50 pt-4">
               <Button variant="ghost" className="justify-start text-sm text-muted-foreground" asChild>
-                <a href="https://app.imag.gg/login">
+                <a href={`${appUrl}/login`}>
                   {t("nav.signIn")}
                 </a>
               </Button>
               <Button className="rounded-full bg-foreground text-background hover:bg-foreground/90 text-sm" asChild>
-                <a href="https://app.imag.gg">
+                <a href={appUrl}>
                   {t("nav.goToApp")}
                 </a>
               </Button>

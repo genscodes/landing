@@ -3,9 +3,11 @@
 import { ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { useLanguage } from "@/lib/language-context"
+import { getAppUrl } from "@/lib/utils"
 
 export function CtaSection() {
   const { t } = useLanguage()
+  const appUrl = getAppUrl()
   return (
     <section className="relative px-6 py-32">
       {/* Background glow */}
@@ -28,7 +30,7 @@ export function CtaSection() {
             className="group rounded-full bg-foreground px-10 text-background hover:bg-foreground/90 text-sm font-bold"
             asChild
           >
-            <a href="https://app.imag.gg">
+            <a href={appUrl}>
               {t("cta.goToApp")}
               <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
             </a>
@@ -39,7 +41,7 @@ export function CtaSection() {
             className="rounded-full border-border/60 bg-transparent px-10 text-foreground hover:bg-accent text-sm"
             asChild
           >
-            <a href="https://app.imag.gg/login">
+            <a href={`${appUrl}/login`}>
               {t("cta.login")}
             </a>
           </Button>

@@ -3,6 +3,7 @@
 import { ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { useLanguage } from "@/lib/language-context"
+import { getAppUrl } from "@/lib/utils"
 
 export function Hero() {
   const { t } = useLanguage()
@@ -39,7 +40,7 @@ export function Hero() {
           className="group rounded-full bg-foreground px-8 text-background hover:bg-foreground/90 text-sm font-bold"
           asChild
         >
-          <a href="https://app.imag.gg">
+          <a href={getAppUrl()}>
             {t("hero.ctaStart")}
             <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
           </a>

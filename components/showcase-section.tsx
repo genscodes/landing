@@ -3,8 +3,7 @@
 import { useState, useRef, useEffect, useCallback } from "react"
 import { ArrowRight, Sparkles, Video, Image, Palette, Wand2, Film } from "lucide-react"
 import { useLanguage } from "@/lib/language-context"
-
-const APP_URL = "https://app.imag.gg"
+import { getAppUrl } from "@/lib/utils"
 
 /** Пул картинок для ленты: /public/feed/1.webp … 20.webp (грузятся по мере появления) */
 const IMG_FEED_POOL = Array.from({ length: 20 }, (_, i) => `/feed/${i + 1}.webp`)
@@ -186,7 +185,7 @@ export function ToolsSection() {
         {filteredTools.map((item, index) => (
           <a
             key={item.titleKey}
-            href={APP_URL}
+            href={getAppUrl()}
             className={`group relative block cursor-pointer overflow-hidden rounded-2xl border border-border/50 bg-card transition-all duration-500 hover:border-border ${
               index === 0 ? "md:col-span-2 md:row-span-2" : ""
             }`}
@@ -301,7 +300,7 @@ export function ShowcaseSection() {
 
         <div className="mb-16 flex justify-center">
           <a
-            href={APP_URL}
+            href={getAppUrl()}
             className="rounded-full border border-border/60 bg-transparent px-6 py-2.5 text-sm font-medium text-muted-foreground transition-colors hover:bg-accent hover:text-foreground"
           >
             {t("showcase.moreWorks")}

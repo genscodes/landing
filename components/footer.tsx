@@ -2,29 +2,7 @@
 
 import { useState } from "react"
 import { useLanguage } from "@/lib/language-context"
-
-const APP_URL = "https://app.imag.gg"
-
-const footerLinkKeys = {
-  Product: [
-    { key: "nav.tools" as const, href: "#create" },
-    { key: "nav.models" as const, href: "#models" },
-    { key: "nav.showcase" as const, href: "#showcase" },
-    { key: "nav.faq" as const, href: "#faq" }
-  ],
-  Studio: [
-    { key: "footer.goToStudio" as const, href: `${APP_URL}/` },
-  ],
-  Support: [
-    { key: "footer.faq" as const, href: "#faq" },
-    { key: "footer.discord" as const, href: "https://discord.gg/UeEjXC4jfv" },
-  ],
-  Legal: [
-    { key: "footer.legal.userAgreement" as const, href: `${APP_URL}/user-agreement`, isExternal: true },
-    { key: "footer.legal.refund" as const, href: `${APP_URL}/refund-policy`, isExternal: true },
-    { key: "footer.legal.cookies" as const, href: "#", isPopup: true },
-  ],
-} as const
+import { getAppUrl } from "@/lib/utils"
 
 const sectionTitleKeys = {
   Product: "footer.product",
@@ -36,6 +14,31 @@ const sectionTitleKeys = {
 export function Footer() {
   const { t } = useLanguage()
   const [cookiePopupOpen, setCookiePopupOpen] = useState(false)
+
+  const appUrl = getAppUrl()
+  const footerLinkKeys = {
+    Product: [
+      { key: "nav.tools" as const, href: "#create" },
+      { key: "nav.models" as const, href: "#models" },
+      { key: "nav.showcase" as const, href: "#showcase" },
+      { key: "nav.faq" as const, href: "#faq" }
+    ],
+    Studio: [
+      { key: "footer.goToStudio" as const, href: `${appUrl}/` },
+    ],
+    Support: [
+      { key: "footer.faq" as const, href: "#faq" },
+      { key: "footer.telegram" as const, href: "https://t.me/imagine_support", isExternal: true },
+      { key: "footer.discord" as const, href: "https://discord.gg/UeEjXC4jfv", isExternal: true },
+      { key: "footer.email" as const, href: "mailto:imag.gg@atomicmail.io" },
+    ],
+    Legal: [
+      { key: "footer.legal.userAgreement" as const, href: `${appUrl}/user-agreement`, isExternal: true },
+      { key: "footer.legal.privacyPolicy" as const, href: `${appUrl}/privacy-policy`, isExternal: true },
+      { key: "footer.legal.refund" as const, href: `${appUrl}/refund-policy`, isExternal: true },
+      { key: "footer.legal.cookies" as const, href: "#", isPopup: true },
+    ],
+  } as const
 
   const footerLinks = Object.fromEntries(
     Object.entries(footerLinkKeys).map(([section, links]) => [
@@ -83,6 +86,7 @@ export function Footer() {
                     ) : (
                       <a
                         href={link.href}
+                        {...(link.isExternal ? { target: "_blank", rel: "noopener noreferrer" } : {})}
                         className="text-xs text-muted-foreground transition-colors hover:text-foreground"
                       >
                         {link.label}

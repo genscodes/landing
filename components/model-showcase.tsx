@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react"
 import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react"
 import { useLanguage } from "@/lib/language-context"
+import { getAppUrl } from "@/lib/utils"
 import { NANOBANANA_IMAGES } from "@/lib/nanobanana-images"
 import { MIDJOURNEY_IMAGES } from "@/lib/midjourney-images"
 
@@ -174,7 +175,7 @@ export function MidjourneyShowcase() {
               </li>
             </ul>
             <a
-              href="https://app.imag.gg"
+              href={getAppUrl()}
               className="mt-8 inline-flex items-center gap-2 rounded-full bg-foreground px-7 py-3.5 text-sm font-bold text-background transition-transform hover:scale-105"
             >
               {t("models.startCreating")}
@@ -250,7 +251,7 @@ export function NanaBananaShowcase() {
               </li>
             </ul>
             <a
-              href="https://app.imag.gg"
+              href={getAppUrl()}
               className="mt-8 inline-flex items-center gap-2 rounded-full bg-foreground px-7 py-3.5 text-sm font-bold text-background transition-transform hover:scale-105"
             >
               {t("models.startCreating")}
