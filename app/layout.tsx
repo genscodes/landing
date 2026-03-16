@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from 'next'
 import { Play } from 'next/font/google'
 import { LanguageProvider } from '@/lib/language-context'
+import { RuGeoRedirect } from '@/components/ru-geo-redirect'
 import './globals.css'
 
 const play = Play({
@@ -91,6 +92,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${play.variable} font-sans antialiased`}>
+        <RuGeoRedirect />
         <LanguageProvider>{children}</LanguageProvider>
         <script
           type="application/ld+json"
