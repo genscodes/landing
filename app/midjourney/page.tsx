@@ -7,10 +7,64 @@ import { Footer } from "@/components/footer"
 import { CookieConsent } from "@/components/cookie-consent"
 import { MidjourneyClient } from "./midjourney-client"
 
-export const metadata: Metadata = {
-  title: "Midjourney — Create with Imagine",
+const breadcrumbJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "Imagine AI",
+      item: "https://imag.gg/",
+    },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: "Midjourney",
+      item: "https://imag.gg/midjourney/",
+    },
+  ],
+}
+
+const midjourneyAppJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  name: "Midjourney on Imagine AI",
+  url: "https://imag.gg/midjourney/",
+  applicationCategory: "MultimediaApplication",
+  operatingSystem: "Web",
+  offers: {
+    "@type": "Offer",
+    price: "0",
+    priceCurrency: "USD",
+    availability: "https://schema.org/InStock",
+  },
   description:
-    "Generate stunning, photorealistic images with unmatched detail and artistic control. Midjourney brings cinematic quality to every prompt — from concept art to product shots and beyond.",
+    "Use Midjourney online without Discord on Imagine AI. Generate cinematic, photorealistic images with deep artistic detail and rich lighting.",
+  featureList: [
+    "Photorealistic image generation",
+    "Cinematic quality output",
+    "No Discord required",
+    "Midjourney online access",
+    "Concept art generation",
+    "Product shot creation",
+  ],
+}
+
+export const metadata: Metadata = {
+  title: "Midjourney Online — AI Image Generator Without Discord | Imagine AI",
+  description:
+    "Use Midjourney online on Imagine AI — no Discord required. Generate cinematic, photorealistic AI images with deep detail and artistic control. Free plan available.",
+  keywords: [
+    "Midjourney online",
+    "Midjourney without Discord",
+    "Midjourney AI image generator",
+    "use Midjourney online",
+    "Midjourney web",
+    "AI image generator",
+    "photorealistic AI art",
+    "Imagine AI Midjourney",
+  ],
   alternates: {
     canonical: "/midjourney/",
     languages: {
@@ -21,29 +75,35 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     url: "/midjourney/",
-    title: "Midjourney — Create with Imagine",
+    title: "Midjourney Online — No Discord Required | Imagine AI",
     description:
-      "Photorealistic AI image generation with cinematic quality, deep detail, and rich lighting — powered by Midjourney inside Imagine AI.",
+      "Generate cinematic, photorealistic AI images with Midjourney on Imagine AI — no Discord required. Free plan available.",
     siteName: "Imagine AI",
     images: [
       {
         url: "/og-main.jpg",
         width: 1200,
         height: 630,
-        alt: "Midjourney model preview — Imagine AI",
+        alt: "Midjourney AI image generation on Imagine AI",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Midjourney — Photorealistic AI Images on Imagine",
+    title: "Midjourney Online Without Discord — Imagine AI",
     description:
-      "Create cinematic, photorealistic AI images with Midjourney inside Imagine AI — perfect for concept art, product visuals, and more.",
+      "Use Midjourney without Discord on Imagine AI. Photorealistic AI images with cinematic quality. Free plan available.",
     images: ["/og-main.jpg"],
   },
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
   },
 }
 
@@ -70,6 +130,8 @@ export default function MidjourneyPage() {
 
       <Footer />
       <CookieConsent />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(midjourneyAppJsonLd) }} />
     </main>
   )
 }

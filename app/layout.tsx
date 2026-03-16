@@ -17,7 +17,53 @@ const organizationJsonLd = {
   '@type': 'Organization',
   name: 'Imagine AI',
   url: siteUrl,
-  logo: `${siteUrl}/favicon.webp`,
+  logo: {
+    '@type': 'ImageObject',
+    url: `${siteUrl}/favicon.webp`,
+    width: 512,
+    height: 512,
+  },
+}
+
+const websiteJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: 'Imagine AI',
+  url: siteUrl,
+  potentialAction: {
+    '@type': 'SearchAction',
+    target: {
+      '@type': 'EntryPoint',
+      urlTemplate: `https://app.imag.gg/generate?q={search_term_string}`,
+    },
+    'query-input': 'required name=search_term_string',
+  },
+}
+
+const softwareJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  name: 'Imagine AI',
+  url: siteUrl,
+  applicationCategory: 'MultimediaApplication',
+  operatingSystem: 'Web',
+  offers: {
+    '@type': 'Offer',
+    price: '0',
+    priceCurrency: 'USD',
+    availability: 'https://schema.org/InStock',
+  },
+  description: 'AI platform with 90+ models for generating images, videos, and creative content. Midjourney, Nano Banana 2, Kling, Sora, Seedream — all in one interface.',
+  featureList: [
+    'AI Image Generation',
+    'AI Video Generation',
+    'Image Upscaling',
+    'Image Editing',
+    'Character Creation',
+    '90+ AI Models',
+    'Midjourney Online',
+    'No Discord Required',
+  ],
 }
 
 export const metadata: Metadata = {
@@ -94,10 +140,9 @@ export default function RootLayout({
       <body className={`${play.variable} font-sans antialiased`}>
         <RuGeoRedirect />
         <LanguageProvider>{children}</LanguageProvider>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
-        />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareJsonLd) }} />
       </body>
     </html>
   )

@@ -7,10 +7,65 @@ import { Footer } from "@/components/footer"
 import { CookieConsent } from "@/components/cookie-consent"
 import { NanobananaClient } from "./nanobanana-client"
 
-export const metadata: Metadata = {
-  title: "Nano Banana 2 — Create with Imagine",
+const breadcrumbJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "Imagine AI",
+      item: "https://imag.gg/",
+    },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: "Nano Banana 2",
+      item: "https://imag.gg/nanobanana/",
+    },
+  ],
+}
+
+const nanobananaAppJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  name: "Nano Banana 2 on Imagine AI",
+  url: "https://imag.gg/nanobanana/",
+  applicationCategory: "MultimediaApplication",
+  operatingSystem: "Web",
+  offers: {
+    "@type": "Offer",
+    price: "0",
+    priceCurrency: "USD",
+    availability: "https://schema.org/InStock",
+  },
   description:
-    "One of the most detailed AI image models available. Nano Banana 2 delivers maximum fidelity, fine detail, and precise control over composition — for concept art, product shots, and high-end visuals.",
+    "Nano Banana 2 — one of the most detailed AI image models. Maximum fidelity, clean edges, and precise control for concept art, product shots, and high-end visuals.",
+  featureList: [
+    "Ultra-detailed image generation",
+    "Maximum fidelity output",
+    "Precise composition control",
+    "Clean textures and edges",
+    "Concept art generation",
+    "Product shot creation",
+    "High-end visual production",
+  ],
+}
+
+export const metadata: Metadata = {
+  title: "Nano Banana 2 — Ultra-Detailed AI Image Model | Imagine AI",
+  description:
+    "Generate ultra-detailed AI images with Nano Banana 2 on Imagine AI. Maximum fidelity, clean edges, precise composition control — ideal for concept art and product shots. Free plan available.",
+  keywords: [
+    "Nano Banana 2",
+    "Nano Banana AI",
+    "ultra-detailed AI image",
+    "AI image generator",
+    "high fidelity AI art",
+    "concept art AI",
+    "product shot AI",
+    "Imagine AI models",
+  ],
   alternates: {
     canonical: "/nanobanana/",
     languages: {
@@ -21,29 +76,35 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     url: "/nanobanana/",
-    title: "Nano Banana 2 — Create with Imagine",
+    title: "Nano Banana 2 — Ultra-Detailed AI Image Model | Imagine AI",
     description:
-      "High-fidelity AI image generation model with extreme detail, clean edges, and precise control over composition — perfect for concept art, product shots, and high-end visuals.",
+      "Maximum fidelity AI image generation with clean edges and precise control. Perfect for concept art, product shots, and high-end visuals.",
     siteName: "Imagine AI",
     images: [
       {
         url: "/og-main.jpg",
         width: 1200,
         height: 630,
-        alt: "Nano Banana model preview — Imagine AI",
+        alt: "Nano Banana 2 AI image model on Imagine AI",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Nano Banana 2 — High-Fidelity AI Image Model",
+    title: "Nano Banana 2 — Ultra-Detailed AI Images | Imagine AI",
     description:
-      "Generate ultra-detailed AI images with Nano Banana 2 on Imagine AI — fine detail, clean textures, and precise control.",
+      "Generate ultra-detailed AI images with Nano Banana 2 — maximum fidelity, clean textures, precise control. Free plan available.",
     images: ["/og-main.jpg"],
   },
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
   },
 }
 
@@ -70,6 +131,8 @@ export default function NanobananaPage() {
 
       <Footer />
       <CookieConsent />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(nanobananaAppJsonLd) }} />
     </main>
   )
 }

@@ -22,6 +22,11 @@ export default function robots(): MetadataRoute.Robots {
         allow: "/",
         disallow: ["/api/", "/account", "/dashboard"],
       },
+      // Block pure training crawlers only — recommendation/search AI bots are allowed
+      { userAgent: "GPTBot", disallow: "/" },         // OpenAI training
+      { userAgent: "CCBot", disallow: "/" },           // Common Crawl training
+      { userAgent: "Diffbot", disallow: "/" },         // Data scraping
+      { userAgent: "cohere-ai", disallow: "/" },       // Cohere training
     ],
     sitemap: `${base}/sitemap.xml`,
     host: base,

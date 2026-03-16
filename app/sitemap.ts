@@ -21,18 +21,36 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(),
       changeFrequency: "weekly",
       priority: 1,
-    },
-    {
-      url: `${base}/nanobanana/`,
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 0.9,
+      alternates: {
+        languages: {
+          en: base,
+          ru: `${base}/?hl=ru`,
+        },
+      },
     },
     {
       url: `${base}/midjourney/`,
       lastModified: new Date(),
       changeFrequency: "weekly",
       priority: 0.9,
+      alternates: {
+        languages: {
+          en: `${base}/midjourney/`,
+          ru: `${base}/midjourney/?hl=ru`,
+        },
+      },
+    },
+    {
+      url: `${base}/nanobanana/`,
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.9,
+      alternates: {
+        languages: {
+          en: `${base}/nanobanana/`,
+          ru: `${base}/nanobanana/?hl=ru`,
+        },
+      },
     },
   ]
 }
