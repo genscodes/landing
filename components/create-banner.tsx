@@ -3,15 +3,16 @@
 import { useRef } from "react"
 import { ArrowRight, Sparkles, ChevronLeft, ChevronRight } from "lucide-react"
 import { useLanguage } from "@/lib/language-context"
+import { getAppUrl } from "@/lib/utils"
 
-const toolsConfig = [
-  { id: "create_image", tagKey: null as string | null },
-  { id: "create_video", tagKey: null },
-  { id: "motion_control", tagKey: null },
-  { id: "create_character", tagKey: null },
-  { id: "edit_image", tagKey: null },
-  { id: "nano_banana_pro", tagKey: "create.tag.unlimited" },
-  { id: "upscale", tagKey: "create.tag.new" },
+const getToolsConfig = (appUrl: string) => [
+  { id: "create_image", tagKey: null as string | null, href: `${appUrl}/generate` },
+  { id: "create_video", tagKey: null, href: `${appUrl}/video` },
+  { id: "motion_control", tagKey: null, href: `${appUrl}/video?group=Motion%20Control` },
+  { id: "create_character", tagKey: null, href: `${appUrl}/character` },
+  { id: "edit_image", tagKey: null, href: `${appUrl}/image-edit` },
+  { id: "nano_banana_pro", tagKey: "create.tag.unlimited", href: `${appUrl}/generate?model=nano-banana-2` },
+  { id: "upscale", tagKey: "create.tag.new", href: `${appUrl}/upscale` },
 ] as const
 
 const toolMedia: Record<string, { src: string; type: "video" | "image" }> = {
@@ -27,10 +28,12 @@ const toolMedia: Record<string, { src: string; type: "video" | "image" }> = {
 export function CreateBanner() {
   const { t } = useLanguage()
   const scrollRef = useRef<HTMLDivElement>(null)
-  const tools = toolsConfig.map(({ id, tagKey }) => ({
+  const appUrl = getAppUrl()
+  const tools = getToolsConfig(appUrl).map(({ id, tagKey, href }) => ({
     id,
     name: t(`create.tool.${id}`),
     tag: tagKey ? t(tagKey) : null,
+    href,
   }))
 
   const scroll = (direction: "left" | "right") => {
@@ -92,8 +95,9 @@ export function CreateBanner() {
                 style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
               >
                 {tools.map((tool) => (
-                  <div
+                  <a
                     key={tool.id}
+                    href={tool.href}
                     className="group flex flex-col cursor-pointer md:shrink-0 md:snap-start"
                   >
                     <div className="relative h-44 w-full overflow-hidden rounded-xl border border-border bg-secondary/50 transition-all duration-300 group-hover:border-muted-foreground/30 md:h-52 md:w-56">
@@ -150,7 +154,7 @@ export function CreateBanner() {
                       </span>
                       <ArrowRight className="h-4 w-4 text-muted-foreground transition-transform group-hover:translate-x-1" />
                     </div>
-                  </div>
+                  </a>
                 ))}
               </div>
             </div>

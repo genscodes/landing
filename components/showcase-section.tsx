@@ -243,58 +243,34 @@ export function ShowcaseSection() {
 
         <div className="mb-6 overflow-hidden">
           <div className="flex w-max animate-showcase-carousel">
-            <div className="flex shrink-0 items-center gap-5 pr-5">
-              {SHOWCASE_CAROUSEL_MEDIA.map((item, i) => (
-                <div
-                  key={i}
-                  className="h-[320px] w-[180px] shrink-0 overflow-hidden rounded-xl border border-border/50 bg-secondary/30 shadow-sm sm:h-[400px] sm:w-[225px]"
-                  style={{ aspectRatio: "9/16" }}
-                >
-                  {item.type === "image" ? (
-                    <img
-                      src={item.src}
-                      alt="AI-generated image example from Imagine"
-                      className="h-full w-full object-cover"
-                    />
-                  ) : (
-                    <video
-                      src={item.src}
-                      className="h-full w-full object-cover"
-                      muted
-                      loop
-                      playsInline
-                      autoPlay
-                    />
-                  )}
-                </div>
-              ))}
-            </div>
-            <div className="flex shrink-0 items-center gap-5 pr-5">
-              {SHOWCASE_CAROUSEL_MEDIA.map((item, i) => (
-                <div
-                  key={`dup-${i}`}
-                  className="h-[320px] w-[180px] shrink-0 overflow-hidden rounded-xl border border-border/50 bg-secondary/30 shadow-sm sm:h-[400px] sm:w-[225px]"
-                  style={{ aspectRatio: "9/16" }}
-                >
-                  {item.type === "image" ? (
-                    <img
-                      src={item.src}
-                      alt="AI-generated image example from Imagine"
-                      className="h-full w-full object-cover"
-                    />
-                  ) : (
-                    <video
-                      src={item.src}
-                      className="h-full w-full object-cover"
-                      muted
-                      loop
-                      playsInline
-                      autoPlay
-                    />
-                  )}
-                </div>
-              ))}
-            </div>
+            {[0, 1, 2, 3].map((copy) => (
+              <div key={copy} className="flex shrink-0 items-center gap-5 pr-5">
+                {SHOWCASE_CAROUSEL_MEDIA.map((item, i) => (
+                  <div
+                    key={i}
+                    className="h-[320px] w-[180px] shrink-0 overflow-hidden rounded-xl border border-border/50 bg-secondary/30 shadow-sm sm:h-[400px] sm:w-[225px]"
+                    style={{ aspectRatio: "9/16" }}
+                  >
+                    {item.type === "image" ? (
+                      <img
+                        src={item.src}
+                        alt="AI-generated image example from Imagine"
+                        className="h-full w-full object-cover"
+                      />
+                    ) : (
+                      <video
+                        src={item.src}
+                        className="h-full w-full object-cover"
+                        muted
+                        loop
+                        playsInline
+                        autoPlay
+                      />
+                    )}
+                  </div>
+                ))}
+              </div>
+            ))}
           </div>
         </div>
 

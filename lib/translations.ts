@@ -199,11 +199,11 @@ export const translations: Record<Locale, Record<string, string>> = {
     "models.newModel": "Новая модель",
     "models.midjourney.title": "Midjourney",
     "models.midjourney.desc": "Генерация детализированных фотореалистичных изображений с гибким управлением стилем. Качество уровня кино — от концепт‑арта до продукт‑фото.",
-    "models.midjourney.1": "Выход до 8K",
+    "models.midjourney.1": "Разрешение до 8K",
     "models.midjourney.2": "Перенос и смешение стилей",
     "models.midjourney.3": "Согласованная генерация персонажей",
     "models.nanobanana.title": "Nano Banana 2",
-    "models.nanobanana.desc": "Одна из самых детализированных моделей для изображений. Nano Banana 2 даёт максимальную проработку, тонкие детали и точный контроль композиции — для концепт-арта, продукт-фото и премиальной картинки.",
+    "models.nanobanana.desc": "Одна из самых детализированных моделей для изображений. Nano Banana 2 даёт максимальную проработку, тонкие детали и точный контроль композиции — для концепт-арта, продукт-фото и высококлассной визуализации.",
     "models.nanobanana.1": "Высокая детализация и проработка текстур",
     "models.nanobanana.2": "Пакетная генерация и приоритетная очередь",
     "models.nanobanana.3": "Продвинутое понимание запросов",
@@ -217,7 +217,7 @@ export const translations: Record<Locale, Record<string, string>> = {
 
     "showcase.label": "Галерея",
     "showcase.title": "Для тех, кто выходит за рамки",
-    "showcase.subtitle": "От кинематографичного видео до 4K‑изображений — инструменты, которые меняют творческий ИИ.",
+    "showcase.subtitle": "От кинематографичного видео до 4K‑изображений — инструменты, задающие новый стандарт творческого ИИ.",
     "showcase.moreWorks": "Больше работ",
     "showcase.idea.title": "Idea Studio 1.0",
     "showcase.idea.desc": "Лучшие идеи авторов — адаптируйте их под свой стиль в один клик.",
@@ -238,7 +238,7 @@ export const translations: Record<Locale, Record<string, string>> = {
 
     // Create Character section
     "characterSection.title": "Создайте собственного AI‑персонажа",
-    "characterSection.subtitle": "Обучите персонажа по своим фото и используйте его в изображениях и видео — с узнаваемым стилем и внешностью.",
+    "characterSection.subtitle": "Загрузите фото — ИИ запомнит образ и воспроизведёт его в изображениях и видео с узнаваемой внешностью.",
     "characterSection.cta": "Создать персонажа",
 
     "tools.label": "Инструменты",
@@ -265,7 +265,7 @@ export const translations: Record<Locale, Record<string, string>> = {
     "faq.q1": "Что такое Imagine?",
     "faq.a1": "Imagine — ИИ‑платформа для создания изображений и видео. Все основные инструменты в одном интерфейсе, без переключения между сервисами.",
     "faq.q5": "Что такое Idea Studio 1.0?",
-    "faq.a5": "Idea Studio 1.0 помогает перейти от промптов к готовым решениям и делает ИИ удобнее для повседневной работы. Создавайте изображения и видео по идеям от авторов — адаптируйте под свой стиль в один клик.",
+    "faq.a5": "Idea Studio 1.0 помогает перейти от промптов к готовым решениям и делает работу с ИИ удобнее для повседневных задач. Создавайте изображения и видео по идеям от авторов — адаптируйте под свой стиль в один клик.",
     "faq.q2": "Какие ИИ-модели доступны?",
     "faq.a2": "Поддерживаются Kling 3.0, Nano Banana 2, Seedream 4.5, Midjourney, Sora, Runway и другие — для изображений и видео. Новые модели добавляются регулярно.",
     "faq.q3": "Есть ли бесплатный план?",
@@ -294,12 +294,12 @@ export const translations: Record<Locale, Record<string, string>> = {
     "footer.copyright": "© 2026 Imagine AI. Все права защищены.",
     "footer.discord": "Discord",
     "footer.telegram": "Telegram",
-    "footer.tagline": "Платформа для творчества на ИИ нового поколения для авторов, разработчиков и бизнеса.",
-    "cookie.banner": "Мы используем Cookie",
-    "cookie.bannerBold": "Cookie",
+    "footer.tagline": "Платформа нового поколения для творчества с ИИ — для авторов, разработчиков и бизнеса.",
+    "cookie.banner": "Мы используем куки",
+    "cookie.bannerBold": "куки",
     "cookie.accept": "Принять",
     "cookie.popupTitle": "Файлы cookie",
-    "cookie.popupText": "We use cookies only to ensure the service works correctly: session management, authentication, and saving your preferences. We do not use cookies for advertising or third-party tracking.",
+    "cookie.popupText": "Мы используем куки только для корректной работы сервиса: управление сессией, аутентификация и сохранение ваших настроек. Куки не используются для рекламы или стороннего трекинга.",
   },
 }
 
